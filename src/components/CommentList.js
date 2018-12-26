@@ -3,10 +3,16 @@ import Comment from './Comment';
 
 class CommentList extends Component {
 	render() {
+		const commentNodes = this.props.data.map((comment, id) =>
+			(
+				<Comment author={comment.author} key={id}>
+				{comment.text}
+				</Comment>
+			)
+		);
 		return (
 			<div className="CommentList">
-				<Comment author="ヘンリー・キッシンジャー">チャンスは__貯金__できない。</Comment>
-				<Comment author="マーク・トウェイン">禁煙なんてたやすい。私は*何千回*もやった。</Comment>
+			{commentNodes}
 			</div>
 		);
 	}
