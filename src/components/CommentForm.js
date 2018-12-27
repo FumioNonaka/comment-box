@@ -5,16 +5,8 @@ class CommentForm extends Component {
 		super(props);
 		this.state = {author: '', text: ''};
 		this.handleSubmit = this.handleSubmit.bind(this);
-		// this.handleAuthorChange = this.handleAuthorChange.bind(this);
-		// this.handleTextChange = this.handleTextChange.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 	}
-	/* handleAuthorChange(eventObject) {
-		this.setState({author: eventObject.target.value});
-	}
-	handleTextChange(eventObject) {
-		this.setState({text: eventObject.target.value});
-	} */
 	handleChange(eventObject) {
 		const input = eventObject.target;
 		const state = {};
@@ -34,7 +26,7 @@ class CommentForm extends Component {
 	}
 	render() {
 		return (
-			<form className="CommentForm"  onSubmit={this.handleSubmit}>
+			<form className="CommentForm" onSubmit={this.handleSubmit}>
 				<input
 					id="author"
 					type="text"
