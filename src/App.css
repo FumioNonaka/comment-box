@@ -7,6 +7,9 @@
 .CommentForm {
 	margin-top: 20px;
 }
+.CommentForm input {
+	font-size: 12px;
+}
 .Comment {
 	margin-bottom: 10px;
 	font-size: 16px;
