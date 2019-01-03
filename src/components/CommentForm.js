@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CommentStorage from './CommentStorage';
+import './CommentForm.css';
 
 class CommentForm extends Component {
 	constructor(props) {
@@ -21,7 +23,7 @@ class CommentForm extends Component {
 			this.setState({author: author, text: text});
 			return;
 		}
-		this.props.onCommentSubmit({author: author, text: text});
+		this.props.onCommentSubmit({author: author, text: text, id: CommentStorage.uid++});
 		this.setState({author: '', text: ''});
 	}
 	render() {

@@ -1,16 +1,20 @@
-const STORAGE_KEY = 'comments-react-16.7';
-const commentStorage = {
-	fetch() {
-		const comments = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+class CommentStorage {
+	static get STORAGE_KEY() {
+		return 'comments-react-16.7';
+	}
+	static fetch() {
+		const comments = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]');
 		comments.forEach(function(comment, index) {
 			comment.id = index;
 		});
-		commentStorage.uid = comments.length;
+		this.uid = comments.length;
 		return comments;
-	},
-	save(comments) {
-		localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+	}
+	static save(comments) {
+		localStorage.setItem(this.STORAGE_KEY, JSON.stringify(comments));
 	}
 };
+// CommentStorage.STORAGE_KEY = 'comments-react-16.7';
+CommentStorage.uid = 0;
 
-export default commentStorage;
+export default CommentStorage;

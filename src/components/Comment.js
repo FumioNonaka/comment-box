@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Remarkable from 'remarkable';
+import './Comment.css';
 
 class Comment extends Component {
 	constructor(props) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CommentList from './components/CommentList';
 import CommentForm from './components/CommentForm';
-import commentStorage from './components/commentStorage';
+import CommentStorage from './components/CommentStorage';
 import './App.css';
 
 class App extends Component {
@@ -12,18 +12,18 @@ class App extends Component {
 		this.removeComment = this.removeComment.bind(this);
 	}
 	async componentDidMount() {
-		this.setState({data: commentStorage.fetch()});
+		this.setState({data: CommentStorage.fetch()});
 	}
 	handleCommentSubmit(comment) {
-		const data = this.state.data;
-		data.push(comment);
+		const data = [...this.state.data, comment];
 		this.setState({data: data});
-		commentStorage.save(data);
+		CommentStorage.save(data);
 	}
 	removeComment(commntId) {
-		const data = this.state.data.filter((comment) => comment.id != commntId);
+		console.log(commntId);
+		const data = this.state.data.filter((comment) => comment.id !== commntId);
 		this.setState({data: data});
-		commentStorage.save(data);
+		CommentStorage.save(data);
 	}
 	render() {
 		return (
