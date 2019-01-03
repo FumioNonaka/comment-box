@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 import Remarkable from 'remarkable';
-import './Comment.css';
+import styled from 'styled-components'
+
+const CommentContainer = styled.div`
+	margin-bottom: 10px;
+	font-size: 16px;
+	& span {
+		display: inline-block;
+	}
+	& button {
+		display: inline-block;
+	}
+`;
+const CommentAuthor = styled.h2`
+	margin: 0;
+`;
 
 class Comment extends Component {
 	constructor(props) {
@@ -17,13 +31,13 @@ class Comment extends Component {
 	}
 	render() {
 		return (
-			<div className="Comment">
-				<h2 className="commentAuthor">
+			<CommentContainer>
+				<CommentAuthor>
 				{this.props.author}
-				</h2>
+				</CommentAuthor>
                 <span dangerouslySetInnerHTML={this.rawMarkup()} />
 				<button onClick={this.remove}>X</button>
-			</div>
+			</CommentContainer>
 		);
 	}
 }

@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import CommentList from './components/CommentList';
 import CommentForm from './components/CommentForm';
 import CommentStorage from './components/CommentStorage';
-import './App.css';
+import styled from 'styled-components'
+
+const CommentBox = styled.div`
+	margin-left: 20px;
+`;
 
 class App extends Component {
 	constructor(props) {
@@ -27,11 +31,11 @@ class App extends Component {
 	}
 	render() {
 		return (
-			<div className="App">
+			<CommentBox>
 				<h1>コメント</h1>
 				<CommentList data={this.state.data} onRemoveComment={this.removeComment} />
 				<CommentForm onCommentSubmit={this.handleCommentSubmit} />
-			</div>
+			</CommentBox>
 		);
 	}
 }

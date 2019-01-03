@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import CommentStorage from './CommentStorage';
-import './CommentForm.css';
+import styled from 'styled-components'
+
+const CommentFormContainer = styled.form`
+	margin-top: 20px;
+	& input {
+		font-size: 12px;
+	}
+`;
 
 class CommentForm extends Component {
 	constructor(props) {
@@ -28,7 +35,7 @@ class CommentForm extends Component {
 	}
 	render() {
 		return (
-			<form className="CommentForm" onSubmit={this.handleSubmit}>
+			<CommentFormContainer onSubmit={this.handleSubmit}>
 				<input
 					id="author"
 					type="text"
@@ -44,7 +51,7 @@ class CommentForm extends Component {
 					onChange={this.handleChange}
 				/>
 				<input type="submit" value="送信" />
-			</form>
+			</CommentFormContainer>
 		);
 	}
 }
