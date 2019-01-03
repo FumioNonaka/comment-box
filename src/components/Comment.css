@@ -1,0 +1,13 @@
+.Comment {
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+.Comment span {
+	display: inline-block;
+}
+.Comment button {
+	display: inline-block;
+}
+.commentAuthor {
+	margin: 0;
+}
