@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import CommentStorage from './CommentStorage';
 import styled from 'styled-components'
 
@@ -54,6 +55,9 @@ class CommentForm extends Component {
 			</CommentFormContainer>
 		);
 	}
+}
+CommentForm.propTypes = {
+	onCommentSubmit: PropTypes.func.isRequired
 }
 
 export default CommentForm;
