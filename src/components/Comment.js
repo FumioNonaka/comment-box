@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Remarkable from 'remarkable';
 import styled from 'styled-components'
 
@@ -40,6 +41,11 @@ class Comment extends Component {
 			</CommentContainer>
 		);
 	}
+}
+Comment.propTypes = {
+	author: PropTypes.string.isRequired,
+	id: PropTypes.number,
+	onRemoveComment: PropTypes.func.isRequired
 }
 
 export default Comment;

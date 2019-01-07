@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Comment from './Comment';
 import styled from 'styled-components'
 
@@ -19,7 +20,7 @@ class CommentList extends Component {
 			(
 				<Comment
 					author={comment.author}
-					key={id}
+					key={comment.id}
 					id={comment.id}
 					onRemoveComment={this.removeComment}
 				>
@@ -33,6 +34,16 @@ class CommentList extends Component {
 			</CommentListContainer>
 		);
 	}
+}
+CommentList.propTypes = {
+	data: PropTypes.arrayOf(
+		PropTypes.shape({
+			author: PropTypes.string.isRequired,
+			text: PropTypes.string.isRequired,
+			id: PropTypes.number
+		})
+	),
+	onRemoveComment: PropTypes.func.isRequired
 }
 
 export default CommentList;
