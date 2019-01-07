@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
-import './CommentList.css';
+import styled from 'styled-components'
+
+const CommentListContainer = styled.div`
+	margin-bottom: 10px;
+`;
 
 class CommentList extends Component {
 	constructor(props) {
@@ -24,9 +28,9 @@ class CommentList extends Component {
 			)
 		);
 		return (
-			<div className="CommentList">
+			<CommentListContainer>
 			{commentNodes}
-			</div>
+			</CommentListContainer>
 		);
 	}
 }
